@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Archives: 2019/4 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -152,61 +152,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-go学习之基础篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/10/go学习之基础篇/" class="archive-article-date">
+  	<time datetime="2019-04-10T14:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/go学习之基础篇/">Go语言学习之基础篇</a>
+      <a class="archive-article-title" href="/2019/04/10/go学习之基础篇/">Go语言学习之基础篇</a>
     </h1>
   
 
-        
-        <a href="/2019/04/10/go学习之基础篇/" class="archive-article-date">
-  	<time datetime="2019-04-10T14:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a> 下载需要的安装包<br>linux 放到/usr/local目录中<br>tar -C /usr/local -xzf go1.4.linux-amd64.tar.gz</p>
-<p>####配置环境变量<br>export PATH=$PATH:/usr/local/go/bin<br>‘’’<br>第一个程序<br>test.go</p>
-<p>package main &lt;– 必须在源文件中非注释的第一行指明这个文件属于哪个包，每个Go应用程序都有一个名为main的包<br>import “fmt”  &lt;– 引用fmt包，fmt实现了输入输出的函数</p>
-<p>func main(){ &lt;– 程序开始执行的函数，一般来说都是在启动后执行的第一个函数，如果有init会先执行该函数。{不能单独一行<br>    /<em>打印Hello World</em>/  &lt;– 多行注释<br>    // 单行注释 &lt;- 单行注释，和c/c++一样的注释规则<br>    fmt.Println(“Hello World!”) &lt;– 不需要分号，如果多行放在同一行，则需要人为加;区分，不鼓励这种写法。<br>}<br>‘’’<br>*如果标识符第一个字母是大写，如Group1，则可以被包含这个包的程序使用，称为导出，如果是小写，则外部不可见，只能在包的内部可用。</p>
-<p>####标识符<br>命名规则和c/c++一致，可用用字母、数字，下划线，第一个不可以用数字，不能使用关键字。<br>声明变量必须用空格隔开，如 var age int;</p>
-<p>####数据类型<br>布尔型<br>true或false，例如var b bool = true<br>数字类型<br>整型int、浮点数float32、float64，支持复数complex64<br>字符串类型<br>一串固定长度的字符串序列，utf-8编码<br>派生类型<br>a、指针类型Point<br>b、数组类型<br>c、结构化类型<br>d、Channel类型<br>e、函数类型<br>f、切片类型<br>g、接口类型<br>h、map类型</p>
-<p>####变量声明<br>var name type<br>默认值-数字为0，布尔为false，其余的为nil，如var age int<br>根据值自行判断变量类型，类似c11的auto，var age = 2<br>省略var，注意:=左侧如果没有声明新的变量，就产生编译错误，格式: v_name := value，:=是一个声明语句。<br><em>多变量声明<br>var v1, v2, v3 = 3, 4, 5
-</em>全局变量声明<br>var(<br>    a bool<br>    b int<br>)</p>
-<p>g, h := 123, “hello” 只能在函数中出现<br>*值类型和引用类型<br>int、float、bool和string这些基本类型都属于值类型，使用这些类型的变量直接指向存在内存中的值。<br>:=赋值操作符<br>a := 50这种使用变量方式为首选，只能在函数体内使用。变量a如果声明了就不可以在使用:=。<br>如果声明了局部变量却没有使用，会得到编译错误。全局变量则不会。</p>
-<p>交换两个变量可以使用 a, b = b, a<br>下划线_可以用于抛弃值，实际上是一个只写变量，不能得到它的值。可以用于多返回值，但是有些变量不使用。</p>
-<p>####常量<br>程序运行时，不会被修改的量。如const b string = “hello”; const b = “world”;<br>还可以用于枚举<br>const(<br>    Unknow = 0<br>    Female = 1<br>    Male = 2<br>)</p>
-<p>iota特殊常量,可以被编译器修改的常量！<br>const(<br>    a = iota<br>    b = iota<br>    c = iota<br>)</p>
-<p>0 1 2</p>
-<p>const(<br>    a = iota<br>    b<br>    c<br>)</p>
-<p>0 1 2</p>
-<p>const(<br>    i = 1 &lt;&lt; iota<br>    j = 3 &lt;&lt; iota<br>    k<br>    l<br>)</p>
-<p>1 6 12 24</p>
-<p>unsafe.Sizeof(字符串) 包含指向底层数值的指针和长度，这两个部分都是8个字节?字符串类型对应一个结构体，该结构体有两个域，一个指向该字符串的指针，第二个域是字符串的长度。每个域8个字节。<br>sizeof总是在编译期就进行求值，而不是在运行时，这就意味着，返回值可以赋值给常量。<br>如果sizeof的是一个切片类型，返回的是切片的描述符，总是24，不是指向内存的大小.数值则是指向内存的大小。</p>
-<p>####运算符c/c++一致<br>算术运算符，+ - <em> / ++ – %<br>关系运算符，= != &gt;= &lt;= &gt; &lt;<br>逻辑运算符，&amp;&amp; || !<br>位运算符，&gt;&gt; &lt;&lt; &amp; | ^<br>赋值运算符, = += -= %= /= </em>= &gt;&gt;= &lt;&lt;= |= &amp;= ^=<br>其他运算符，* &amp;</p>
-<p>####条件语句,基本和c/c++一致，就是判断语句没有括号<br>if 表达式{<br>    语句<br>}</p>
-<p>if i &lt; 3 {<br>    …<br>}</p>
-<p>if 表达式{</p>
-<p>} else {</p>
-<p>}</p>
-<p>switch语法的case中不需要break<br>switch v {<br>    case 1:<br>    …<br>}</p>
-<p>新东西select,控制结构，类似于用于通信的switch</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -219,110 +193,17 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/go学习之基础篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/21/hello-world/" class="archive-article-date">
-  	<time datetime="2019-03-21T15:14:43.316Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/21/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -344,9 +225,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
